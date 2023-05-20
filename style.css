@@ -5,16 +5,12 @@
 
 body {
     background-color: rgb(26, 26, 26);
-    font-family: __Inter_0ec1f4, sans-serif;
+    font-family: ui-sans-serif, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
 }
 
 section {
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    height: 560px;
 }
 
 header {
@@ -46,9 +42,20 @@ header ul:hover::after {
     width: 100%;
 }
 
+h1 {
+    font-size: 50px;
+}
+
 h3 {
-    width: 400px;
+    font-weight: normal;
+    font-size: 22px;
     color: rgb(4, 124, 194);
+}
+
+perfil {
+    position: absolute;
+    top: 20%;
+    left: 10%;
 }
 
 perfil button {
@@ -60,13 +67,40 @@ perfil button {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
+    transition: all 0.5s;
 }
 
-footer {
-    background-color: rgb(38, 38, 38);
-    height: 80px;
-    margin: 0;
+button:hover {
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.description {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.card {
+    width: 26%;
+    height: 250px;
+    background-color: rgb(22, 22, 22);
+    margin: 20px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.card h1 {
+    font-size: 20px;
+}
+
+.card h2 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.card p {
+    color: rgb(64, 78, 237);
+    cursor: pointer;
 }
