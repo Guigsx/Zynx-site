@@ -1,0 +1,72 @@
+* {
+    text-decoration: none;
+    color: rgb(214, 214, 214);
+}
+
+body {
+    background-color: rgb(26, 26, 26);
+    font-family: __Inter_0ec1f4, sans-serif;
+    margin: 0;
+}
+
+section {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    display: flex;
+}
+
+header ul {
+    margin: 25px;
+    padding: 0;
+    margin-right: 20px;
+    font-weight: 700;
+    position: relative;
+    left: 5%;
+}
+
+header ul::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+header ul:hover::after {
+    width: 100%;
+}
+
+h3 {
+    width: 400px;
+    color: rgb(4, 124, 194);
+}
+
+perfil button {
+    width: 220px;
+    height: 50px;
+    background-color: rgb(64, 78, 237);
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+footer {
+    background-color: rgb(38, 38, 38);
+    height: 80px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
