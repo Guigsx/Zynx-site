@@ -138,8 +138,47 @@ button:hover {
 
 .box-2 {
     width: 700px;
-    height: 300px;
     background-color: rgb(18, 18, 18);
     box-shadow: 0px 0px 5px black;
     margin: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.box-2 ul {
+    list-style: none;
+}
+
+.command-section li {
+    color: rgb(60, 148, 252);
+    padding: 6px;
+    font-weight: 400;
+    background-color: rgb(50, 50, 51);
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+ h4 {
+    padding: 10px;
+    margin-left: 70px;
+}
+
+.status-section li {
+    padding: 6px;
+    font-weight: 400;
+    background-color: rgb(50, 50, 51);
+    border-radius: 4px;
+    color: rgb(34, 221, 153);
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.description-section li {
+    padding: 6px;
+    font-weight: 400;
+    background-color: rgb(27, 27, 27);
+    border-radius: 4px;
+    color: rgb(133, 133, 133);
+    margin-left: 20px;
+    margin-top: 10px;
 }

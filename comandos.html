@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="shortcut icon" href="./imgs/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <ul><a href="/">Home</a></ul>
@@ -17,11 +19,41 @@
     <div class="box">
         <div class="box-1">
             <h3>Categorias</h3>
-            <button>Info</button>
-            <button>Utils</button>
-            <button>Moderação</button>
+            <button id="infoBtn">Info</button>
+            <button id="utilsBtn">Utils</button>
+            <button id="moderacaoBtn">Moderação</button>
         </div>
-        <div class="box-2"></div>
+        <div class="box-2">
+            <div class="command-section">
+                <h4>Comando</h4>
+                <ul>
+                    <li>/ban</li>
+                    <li>/clear</li>
+                    <li>/kick</li>
+                    <li>/unban</li>
+                </ul>
+            </div>
+            <div class="status-section">
+                <h4>Status</h4>
+                <ul>
+                    <li>Online</li>
+                    <li>Online</li>
+                    <li>Online</li>
+                    <li>Online</li>
+                </ul>
+            </div>
+            <div class="description-section">
+                <h4>Descrição</h4>
+                <ul>
+                    <li>Bane um usuário</li>
+                    <li>Limpa mensagens do chat</li>
+                    <li>Expulsa um usuário do servidor</li>
+                    <li>Remove o banimento de um usuário</li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <script src="index.js"></script>
 </body>
+
 </html>
