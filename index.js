@@ -1,57 +1,31 @@
-const box = document.querySelector('.box-2');
+const express = require('express');
+const app = express();
+const path = require('path');
+const session = require('express-session');
+const porta = 2000;
 
-const comandos = [
-    { categoria: 'info', nome: '/botinfo', status: 'Online', descricao: 'Obtenha informações sobre o bot.', },
-    { categoria: 'info', nome: '/convites', status: 'Online', descricao: 'Veja os convites de um usuário.', },
-    { categoria: 'info', nome: '/lol', status: 'Online', descricao: 'Veja informações deuma conta de lol.', },
-    { categoria: 'info', nome: '/mcstatus', status: 'Online', descricao: 'Verifique o status de um servidor de Minecraft.', },
-    { categoria: 'info', nome: '/moedas', status: 'Online', descricao: 'Verifique o valor de algumas moedas.', },
-    { categoria: 'info', nome: '/serverinfo', status: 'Online', descricao: 'Obtenha informações sobre o servidor', },
-    { categoria: 'info', nome: '/userinfo', status: 'Online', descricao: 'Obtenha informações sobre um usuário', },
-    { categoria: 'utils', nome: '/avatar', status: 'Online', descricao: 'Veja o avatar de um usuário', },
-    { categoria: 'utils', nome: '/calculadora-juros-compostos', status: 'Online', descricao: 'Calcule juros compostos', }, { categoria: 'utils', nome: '/ocr', status: 'Offline', descricao: 'Use reconhecimento óptico de caracteres', },
-    { categoria: 'utils', nome: '/ranking', status: 'Offline', descricao: 'Veja o ranking de servidores', },
-    { categoria: 'moderacao', nome: '/ban', status: 'Online', descricao: 'Bane um usuário', },
-    { categoria: 'moderacao', nome: '/clear', status: 'Online', descricao: 'Limpa mensagens do chat', },
-    { categoria: 'moderacao', nome: '/kick', status: 'Online', descricao: 'Expulsa um usuário do servidor', },
-    { categoria: 'moderacao', nome: '/unban', status: 'Online', descricao: 'Remove o banimento de um usuário', },
-];
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-function atualizarCategoria(categoria) {
-    const categoriaComandos = comandos.filter((comando) => comando.categoria === categoria);
+app.use(express.static(path.join(__dirname, "public")))
 
-    const html = `
-    <div class="command-section">
-      <h4>Comando</h4>
-      <ul>
-        ${categoriaComandos.map((comando) => `<li>${comando.nome}</li>`).join('')}
-      </ul>
-    </div>
-    <div class="status-section">
-      <h4>Status</h4>
-      <ul>
-        ${categoriaComandos.map((comando) => `<li style="color: ${comando.status === 'Offline' ? 'red' : 'rgb(34, 221, 153);'}">${comando.status}</li>`).join('')}
-      </ul>
-    </div>
-    <div class="description-section">
-      <h4>Descrição</h4>
-      <ul>
-        ${categoriaComandos.map((comando) => `<li>${comando.descricao}</li>`).join('')}
-      </ul>
-    </div>
-  `;
+app.use(
+    session({
+        secret: 'root',
+        resave: true,
+        saveUninitialized: true,
+        cookie: { secure: false },
+    })
+);
 
-    box.innerHTML = html;
-}
-
-document.getElementById('infoBtn').addEventListener('click', () => {
-    atualizarCategoria('info');
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 });
 
-document.getElementById('utilsBtn').addEventListener('click', () => {
-    atualizarCategoria('utils');
+app.get('/comandos', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'comandos.html'))
 });
 
-document.getElementById('moderacaoBtn').addEventListener('click', () => {
-    atualizarCategoria('moderacao');
+app.listen(porta, () => {
+    console.log(`Servidor online na porta ${porta}!`);
 });
